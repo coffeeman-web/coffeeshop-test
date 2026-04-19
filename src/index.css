@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "PingFang TC", "Hiragino Kaku Gothic ProN", "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Georgia", "Libre Baskerville", serif;
+  
+  --color-glass-bg: #F4F1EE;
+  --color-glass-gradient: #EBE7E2;
+  --color-glass-ink: #4A4643;
+  --color-glass-ink-focus: #333333;
+  --color-glass-clay: #7B7671;
+  --color-glass-tertiary: #9E9994;
+  --color-glass-deco: #E0DBD5;
+}
+
+@layer base {
+  body {
+    @apply bg-glass-bg text-glass-ink font-sans antialiased selection:bg-glass-ink/10;
+    background: radial-gradient(circle at 70% 30%, var(--color-glass-gradient) 0%, var(--color-glass-bg) 60%);
+  }
+  
+  h1, h2, h3, h4, .serif {
+    @apply font-serif font-normal;
+  }
+}
+
+.glass-panel {
+  @apply bg-white/40 backdrop-blur-[12px] border border-white/50 shadow-[0_10px_30px_rgba(0,0,0,0.02)] rounded-[4px];
+}
+
+.frosted-nav {
+  @apply bg-white/20 backdrop-blur-[8px] border-b border-white/10;
+}
+
+.breathing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.fade-in-section {
+  @apply opacity-0 translate-y-4 transition-all duration-1000 ease-out;
+}
+
+.fade-in-section.visible {
+  @apply opacity-100 translate-y-0;
+}
